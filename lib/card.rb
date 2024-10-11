@@ -8,6 +8,6 @@ class Card
   end 
 
   def to_s
-    "#{value} of #{suit.capitalize} (Rank: #{rank})"
+    "#{value.capitalize} of #{suit.capitalize}, #{rank})"
   end
 end
