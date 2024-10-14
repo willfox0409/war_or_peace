@@ -9,17 +9,23 @@ class Deck
     card ? card.rank : nil
   end
 
-  def high_ranking_cards 
-    @cards.find_all do |card|
-        card.rank >= 11
+  def high_ranking_cards        #define a method called 'high ranking cards'
+    @cards.find_all do |card|   #conduct the .find_all method on the @cards array
+        card.rank >= 11         #use the .rank method on the card array 
     end
   end
 
    def percent_high_ranking
-    percent_high_card = @cards.find_all do |card|
-        card.rank >= 11
-    end
-   (percent_high_card.to_f / @cards.count * 100).round(2)
+    high_cards_count = @cards.find_all { |card| card.rank >= 11 }.count
+    (high_cards_count.to_f / @cards.count * 100).round(2)
     end 
+
+    def remove_card
+    @cards.shift  #.empty = built-in Ruby array method to check if array is empty
+    end
+
+    def add_card(card)
+    @cards.push(card)   # can also use this (<<) method instead of '.push'
+    end
 end
 
