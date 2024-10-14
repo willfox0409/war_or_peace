@@ -63,17 +63,22 @@ RSpec.describe Deck do
         expect(deck.cards).to eq([card3])
 
         deck.remove_card #Deck should be empty
-        expect(deck.remove_card).to be_nil
+        expect(deck.cards).to eq([])
       end
     end
 
     describe '#add_card' do
     it 'adds a new card to the bottom of the deck' do
-        card4 = Card.new(:club, '5', 5)
-        deck = Deck.new([])
+        card1 = Card.new(:diamond, 'Queen', 12)
+        card2 = Card.new(:spade, '3', 3)
+        card3 = Card.new(:heart, 'Ace', 14) 
 
+        deck = Deck.new([card1, card2, card3])
+        
+        card4 = Card.new(:club, '5', 5)
+    
         deck.add_card(card4)
-        expect(deck.cards).to eq([card4])
+        expect(deck.cards).to eq([card1, card2, card3, card4])
       end
     end
 end
